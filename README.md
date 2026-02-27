@@ -36,10 +36,10 @@ A beautiful, interactive weather dashboard that provides real-time weather data 
 
 ## 🚀 Live Demo
 
-[Add your Vercel URL here after deployment]
+<video controls src="20260227-0907-01.3931288.mp4" title="Title"></video>
 
 ## 📸 Screenshots
 
-[Add screenshots after deployment]
+![alt text](image.png)
 
 ## 💻 Local Setup
