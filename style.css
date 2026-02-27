@@ -1,8 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- PART 1: BASE STYLING --- */
+/* Reset and background setup */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,33 +14,19 @@ body {
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.tagline {
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* ======================
-   Search Section
-====================== */
-
+/* --- PART 2: SEARCH SECTION STYLES --- */
 .search-section {
-    margin-bottom: 30px;
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
 #city-input {
@@ -50,172 +34,81 @@ h1 {
     padding: 12px 20px;
     border-radius: 25px;
     border: 2px solid #ddd;
-    font-size: 1rem;
     outline: none;
-    transition: 0.3s;
-}
-
-#city-input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    transition: border-color 0.3s;
 }
 
 #search-btn {
-    padding: 12px 30px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
+    padding: 12px 25px;
+    background: #667eea;
     color: white;
-    font-size: 1rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    transition: 0.3s;
-}
-
-#search-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-}
-
-#search-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* ======================
-   Weather Display
-====================== */
-
-.weather-info {
-    animation: fadeIn 0.4s ease-in;
-}
-
-.city-name {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.temperature {
-    font-size: 3rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
     font-weight: bold;
-    color: #667eea;
-    margin: 15px 0;
+    transition: transform 0.2s;
 }
 
-.description {
-    text-transform: capitalize;
-}
-
-.weather-icon {
-    width: 100px;
-}
-
-/* ======================
-   Error Message
-====================== */
-
-.error-message {
-    background: #ffe6e6;
-    color: #b00020;
-    padding: 20px;
-    border-radius: 15px;
-    border-left: 6px solid #d8000c;
-    animation: fadeIn 0.3s ease-in;
-}
-
-/* ======================
-   Loading Spinner
-====================== */
-
-.loading-container {
-    text-align: center;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #667eea;
-    border-radius: 50%;
-    margin: 0 auto 10px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 500px) {
-    .search-section {
-        flex-direction: column;
-    }
-    #search-btn {
-        width: 100%;
-    }
-}
-/* ======================
-   Forecast Section
-====================== */
-
-.forecast-section {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 2px solid #eee;
-    animation: fadeIn 0.4s ease-in;
-}
-
-.forecast-title {
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    color: #333;
-}
-
-.forecast-container {
+/* --- PART 3: FORECAST GRID & CARDS --- */
+/* Layout for the 5-day view */
+.forecast-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
+    margin-top: 20px;
 }
 
 .forecast-card {
-    background: linear-gradient(135deg, #f4f6ff, #e9ecff);
-    padding: 15px;
-    border-radius: 15px;
-    transition: 0.3s;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: transform 0.3s;
 }
 
-.forecast-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+.forecast-card:hover { transform: translateY(-5px); }
+
+/* --- PART 4: RECENT SEARCH BUTTONS --- */
+.recent-searches { margin-bottom: 20px; }
+
+#recent-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
-.forecast-day {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.forecast-temp {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #667eea;
-}
-
-.forecast-icon {
-    width: 60px;
-}
-
-.forecast-desc {
+.city-pill {
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 6px 15px;
+    border-radius: 20px;
     font-size: 0.85rem;
-    text-transform: capitalize;
+    cursor: pointer;
+    border: none;
 }
 
-@media (max-width: 768px) {
-    .forecast-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.clear-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* --- PART 2: LOADING & ERRORS --- */
+.spinner {
+    width: 40px; height: 40px; border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea; border-radius: 50%;
+    animation: spin 1s linear infinite; margin: 20px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-message { background: #fee2e2; color: #b91c1c; padding: 15px; border-radius: 10px; }
+
+/* RESPONSIVE DESIGN (Part 3) */
+@media (max-width: 500px) {
+    .forecast-grid { grid-template-columns: repeat(3, 1fr); }
 }
